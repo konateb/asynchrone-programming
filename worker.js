@@ -1,6 +1,6 @@
 // worker.js
 import { parentPort, workerData } from "worker_threads";
-import PrimeCounter from "./prime_counter.js";
+import PrimeCounter from "./primeCounter.js";
 
 const primeCounter = new PrimeCounter();
 

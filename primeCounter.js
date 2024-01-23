@@ -1,4 +1,4 @@
-// primeFunction.js
+// primeCounter.js
 class PrimeCounter {
   constructor() {
     this.lastPrimes = []; // Array to store the last 10 primes
