@@ -8,6 +8,18 @@ function getFileSync(fileName) {
     console.error(err);
   }
 }
+function getFileSync(fileName) {
+  try {
+    const data = fs.readFileSync(fileName, "utf8");
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+// call synchroneously
+ const data = fs.readFileSync("test.txt", "utf8");
+ console.log("data:")
+ console.log(data);
 
 function getFileAsync(fileName) {
   return new Promise((resolve, reject) => {
@@ -18,10 +30,7 @@ function getFileAsync(fileName) {
     }
   });
 }
-// call synchroneously
- const data = fs.readFileSync("test.txt", "utf8");
- console.log("data:")
- console.log(data);
+
 
 
 // call synchroneously

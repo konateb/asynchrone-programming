@@ -1,11 +1,12 @@
 //primeAppMultiThread.js
-import { isMainThread, parentPort, workerData, Worker } from "worker_threads";
+import { isMainThread,  Worker } from "worker_threads";
 import os from "os";
-import PrimeCounter from "./prime_counter.js";
-const numWorkers = os.cpus().length;
+// const numWorkers = os.cpus().length;
+const numWorkers = 5;
+
 console.log("CPU Core", numWorkers);
 const LOWER_BOUND = 2; // Adjust the range as needed
-const UPPER_BOUND = 1_000_000;
+const UPPER_BOUND = 100_000_000;
 const startTime = Date.now();
 const segmentSize = Math.floor((UPPER_BOUND - LOWER_BOUND) / numWorkers);
 let activeWorkers = numWorkers;
@@ -16,7 +17,6 @@ if (isMainThread) {
   for (let i = 0; i < numWorkers; i++) {
     const start = LOWER_BOUND + i * segmentSize;
     const end = i === numWorkers - 1 ? UPPER_BOUND : start + segmentSize;
-    let finalList = [];
 
     const worker = new Worker(new URL("./worker.js", import.meta.url), {
       workerData: { start, end, LOWER_BOUND },
