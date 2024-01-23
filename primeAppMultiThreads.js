@@ -1,12 +1,12 @@
 //primeAppMultiThread.js
-import { isMainThread,  Worker } from "worker_threads";
+import { isMainThread, Worker } from "worker_threads";
 import os from "os";
 // const numWorkers = os.cpus().length;
 const numWorkers = 5;
 
 console.log("CPU Core", numWorkers);
 const LOWER_BOUND = 2; // Adjust the range as needed
-const UPPER_BOUND = 100_000_000;
+const UPPER_BOUND = 10_000_000;
 const startTime = Date.now();
 const segmentSize = Math.floor((UPPER_BOUND - LOWER_BOUND) / numWorkers);
 let activeWorkers = numWorkers;
@@ -42,7 +42,7 @@ if (isMainThread) {
         const options = {
           style: "decimal", // default
           minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
+          maximumFractionDigits: 3,
         };
         console.log(
           `Elapsed: ${timeElapsed.toLocaleString("en-US", options)} second(s)`
