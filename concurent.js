@@ -1,4 +1,3 @@
-//https://masteringjs.io/tutorials/node/sleep
 import { exec, execSync } from "child_process";
 
 function runSync() {
@@ -18,7 +17,7 @@ function runAsync() {
 function timeElapsed(fnName, start) {
   console.log(fnName, (Date.now() - start) / 1000, " second(s)");
 }
-runAsync();
-// runSync();
+// runAsync();
+runSync();
 
 console.log("=============== DONE =================");
