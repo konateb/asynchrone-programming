@@ -18,7 +18,6 @@ function runAsync() {
 function timeElapsed(fnName, start) {
   console.log(fnName, (Date.now() - start) / 1000, " second(s)");
 }
-// runAsyncPromise();
 runAsync();
 // runSync();
 
