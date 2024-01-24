@@ -1,15 +1,15 @@
 //https://masteringjs.io/tutorials/node/sleep
 import { exec, execSync } from "child_process";
-async function runAsyncPromise() {
-  const start = Date.now();
-  await Promise.all([delay("sleep 1"), delay("sleep 2")]);
-  // Prints about 1000, because the `delay()` calls run in parallel
-  timeElapsed("AsyncPromise:", start);
-}
+// async function runAsyncPromise() {
+//   const start = Date.now();
+//   await Promise.all([delay("sleep 1"), delay("sleep 2")]);
+//   // Prints about 1000, because the `delay()` calls run in parallel
+//   timeElapsed("AsyncPromise:", start);
+// }
 
-function delay(timeSleep) {
-  return new Promise((resolve) => resolve(exec(timeSleep)));
-}
+// function delay(timeSleep) {
+//   return new Promise((resolve) => resolve(exec(timeSleep)));
+// }
 
 function runSync() {
   const start = Date.now();
@@ -28,7 +28,7 @@ function runAsync() {
 function timeElapsed(fnName, start) {
   console.log(fnName, (Date.now() - start) / 1000, " second(s)");
 }
-runAsyncPromise();
+// runAsyncPromise();
 runAsync();
 // runSync();
 
