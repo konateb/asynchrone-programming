@@ -4,15 +4,15 @@ function timeElapsed( start) {
   // console.log(method, "time elapsed", Math.floor(delay));
   return delay;
 }
+
+let totalTimeSleeped = 0; //Synch total time
 const printTimeElapsed = () => {
   console.log("Synch TOTAL TIME: ", Math.floor(totalTimeSleeped));
 };
-let totalTimeSleeped = 0; //Synch total time
-
 function runSync(timeToSleep) {
   let start = Date.now();
   execSync(timeToSleep);
-  const timeElapse = Math.floor(timeElapsed("Sync:", start));
+  const timeElapse = Math.floor(timeElapsed( start));
   totalTimeSleeped += timeElapse;
 }
 
@@ -25,15 +25,16 @@ function execAsync(timeToSleep) {
   });
 }
 
+runSync("sleep 3");
+runSync("sleep 4");
+runSync("sleep 5");
+printTimeElapsed();
 const runAsync1 = execAsync("sleep 3");
 const runAsync2 = execAsync("sleep 5");
 const runAsync3 = execAsync("sleep 4");
-Promise.all([runAsync1, runAsync2, runAsync3]).then((values) => {
-  console.log("Async total time elapsed:", Math.floor(Math.max(...values)));
-});
+// Promise.all([runAsync1, runAsync2, runAsync3]).then((values) => {
+//   console.log("Async total time elapsed:", Math.floor(Math.max(...values)));
+// });
 
-// runSync("sleep 3");
-// runSync("sleep 4");
-// runSync("sleep 5");
-// printTimeElapsed();
+
 console.log("=============== DONE =================");
