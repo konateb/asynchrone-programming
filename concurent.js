@@ -1,5 +1,5 @@
 import { exec, execSync } from "child_process";
-function timeElapsed(method, start) {
+function timeElapsed( start) {
   let delay = (Date.now() - start) / 1000;
   // console.log(method, "time elapsed", Math.floor(delay));
   return delay;
@@ -20,7 +20,7 @@ function execAsync(timeToSleep) {
   return new Promise((resolve) => {
     let start = Date.now();
     exec(timeToSleep, () => {
-      resolve(timeElapsed("Async", start));
+      resolve(timeElapsed( start));
     });
   });
 }
