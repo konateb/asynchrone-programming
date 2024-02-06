@@ -1,8 +1,7 @@
 //primeAppMultiThread.js
 import { isMainThread, Worker } from "worker_threads";
 import os from "os";
-// const numWorkers = os.cpus().length;
-const numWorkers = 8;
+const numWorkers = 1//os.cpus().length;
 
 console.log("CPU Core", numWorkers);
 const LOWER_BOUND = 2; // Adjust the range as needed

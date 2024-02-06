@@ -1,3 +1,5 @@
+// Implementation Sieve of Eratosthenes algorithm
+//for counting the prime numbers
 class Prime {
   constructor() {
     this.count = 2;
