@@ -32,9 +32,9 @@ printTimeElapsed();
 const runAsync1 = execAsync("sleep 3");
 const runAsync2 = execAsync("sleep 5");
 const runAsync3 = execAsync("sleep 4");
-// Promise.all([runAsync1, runAsync2, runAsync3]).then((values) => {
-//   console.log("Async total time elapsed:", Math.floor(Math.max(...values)));
-// });
+Promise.all([runAsync1, runAsync2, runAsync3]).then((values) => {
+  console.log("Async total time elapsed:", Math.floor(Math.max(...values)));
+});
 
 
 console.log("=============== DONE =================");
