@@ -1,5 +1,5 @@
 import { Worker, isMainThread, parentPort, workerData } from "worker_threads";
- import { parse } from "some-js-parsing-library";
+import { parse } from "some-js-parsing-library";
 
 if (isMainThread) {
   module.exports = function parseJSAsync(script) {
@@ -16,7 +16,6 @@ if (isMainThread) {
     });
   };
 } else {
- 
   const script = workerData;
   parentPort.postMessage(parse(script));
 }
