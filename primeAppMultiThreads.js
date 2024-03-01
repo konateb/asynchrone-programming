@@ -5,7 +5,7 @@ const numWorkers = os.cpus().length;
 
 console.log("CPU Core", numWorkers);
 const LOWER_BOUND = 2; // Adjust the range as needed
-const UPPER_BOUND = 100_000_000;
+const UPPER_BOUND = 1_000_000;
 
 const segmentSize = Math.floor((UPPER_BOUND - LOWER_BOUND) / numWorkers);
 let activeWorkers = numWorkers;

@@ -11,7 +11,7 @@ class PrimeCounter {
     if (limit > Number.MAX_SAFE_INTEGER) {
       throw new RangeError(`The limit is too large to handle: ${limit}`);
     }
-
+    // Use 1 for true, 0 for false
     const primeFlags = new Uint8Array(limit + 1);
     primeFlags.fill(1);
     primeFlags[0] = primeFlags[1] = 0;
@@ -38,7 +38,9 @@ class PrimeCounter {
     if (end > Number.MAX_SAFE_INTEGER) {
       throw new RangeError(`The limit is too large to handle: ${end}`);
     }
-    const primeFlags = new Array(end - start).fill(true);
+    // const primeFlags = new Array(end - start).fill(true);
+    // Use 1 for true, 0 for false
+    const primeFlags = new Uint8Array(end - start).fill(1);
     const basePrimes = this.getBasePrimes(Math.sqrt(end));
 
     basePrimes.forEach((prime) => {
