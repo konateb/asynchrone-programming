@@ -4,7 +4,7 @@ import os from "os";
 const numWorkers = os.cpus().length;
 
 console.log("CPU Core", numWorkers);
-const LOWER_BOUND = 2; // Adjust the range as needed
+const LOWER_BOUND = 2; //
 const UPPER_BOUND = 1_000_000;
 
 const segmentSize = Math.floor((UPPER_BOUND - LOWER_BOUND) / numWorkers);
@@ -25,10 +25,10 @@ if (isMainThread) {
       totalPrimes += count;
       allLastPrimes.push(...lastPrimes);
       if (--activeWorkers === 0) {
-        // get the time elapsed 
+        // get the time elapsed
         const timeElapsed = (Date.now() - startTime) / 1000;
+
         // Specifying US locale:en-US(commas separated)
-        
         const upperBound = UPPER_BOUND.toLocaleString("en-US");
         const lowerbound = LOWER_BOUND.toLocaleString("en-US");
         const totalPrimesNumberUS = totalPrimes.toLocaleString("en-US");
@@ -39,7 +39,6 @@ if (isMainThread) {
           .sort((a, b) => a - b)
           .slice(-10);
         console.log(`Unique last 10 primes: ${uniqueLastPrimes.join(", ")}`);
-        
 
         // Specifying formatting options
         const options = {
